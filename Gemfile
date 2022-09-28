@@ -9,7 +9,9 @@ gem "rails", "~> 7.0.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-gem "devise"
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
+gem 'pundit', '~> 2.2'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
