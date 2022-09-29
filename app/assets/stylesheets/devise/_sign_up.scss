@@ -1,0 +1,127 @@
+.sign-up-container {
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1050px;
+}
+
+.sign-up-container-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-type-user {
+  width: 115px;
+}
+
+.container-type-user{
+  width: 450px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-user {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-back-color {
+  background-color: rgb(71, 71, 71);
+  border: none;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+}
+
+.btn-back-color:hover{
+  background-color: rgb(92, 92, 92);
+}
+
+.btn-back-color:active{
+  background-color: rgb(170, 168, 168);
+}
+
+
+
+.container-user button{
+  padding: 15px 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.container-user h2{
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: #fff;
+}
+.container-form {
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(53, 52, 52, 0.5);
+  border-radius: 20px;
+  padding: 30px 150px;
+  width: 800px;
+  height: 700px;
+  display: flex;
+  flex-flow: column nowrap;
+  // align-items: center;
+  justify-content: center;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.container-form h2 span{
+  color: #198754;
+}
+
+.container-form h2{
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.container-button {
+  text-align: center;
+}
+
+.container-button a{
+  text-decoration: none;
+  color: #198754;
+}
+
+.container-button a:hover{
+  color: #095833;
+}
+
+.container-form input {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  padding-left: 20px;
+}
+
+input:focus, select:focus, select, input.form-control:focus {
+  box-shadow: none;
+  border-color: #198754;
+}
+
+.img-background {
+  width: 600px;
+  opacity: .2;
+}
