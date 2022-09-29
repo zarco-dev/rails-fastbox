@@ -1,4 +1,8 @@
 class VehiclesController < ApplicationController
+  def index
+    @vehicles = policy_scope(Vehicle)
+  end
+
   def new
     @vehicle = Vehicle.new
     authorize @vehicle
@@ -8,6 +12,11 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     auhotize @vehicle
+  end
+
+  def show
+    authorize @vehicle
+  end
 
   def edit
     authorize @vehicle
@@ -17,7 +26,7 @@ class VehiclesController < ApplicationController
     authorize @vehicle
   end
 
-  def def destroy
+  def destroy
     authorize @vehicle
   end
 end

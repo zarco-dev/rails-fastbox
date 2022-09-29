@@ -1,5 +1,10 @@
-<% if policy(@vehicle).edit? %>
-  <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
-<% end %>
-<!-- [...] -->
-<%= button_to "Destroy this vehicle", @vehicle, method: :delete if policy(@vehicle).destroy? %>
+
+<%= render @vehicle %>
+
+<div>
+  <% if policy(@vehicle).edit? %>
+    <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
+  <% end %>
+  <%= link_to "Back to vehicles", vehicles_path %>
+  <%= button_to "Destroy this vehicle", @vehicle, method: :delete if policy(@vehicle).destroy? %>
+</div>
