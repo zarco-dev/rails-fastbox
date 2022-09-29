@@ -1,8 +1,8 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);">
+<div class="banner" style="background-image: linear-gradient(-45deg, rgba(0,0,0,0.9),rgba(0,0,0,0.7))">
   <div class="container container-first">
     <h1>Tu lo pides, <strong>Nosotros lo llevamos!</strong></h1>
     <p>Creamos un sistema rápido de entrega, donde con unos solos clicks podras enviar tu producto de una forma sencilla.</p>
-    <a class="btn btn-success" href="#">Empezar</a>
+    <%= link_to "Empezar", new_user_session_path, class: "btn btn-success" %>
   </div>
   <div class="container container-first">
     <%= image_tag "delivery.png", class: "img-delivery" %>
