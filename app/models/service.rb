@@ -1,6 +1,6 @@
 class Service < ApplicationRecord
+  belongs_to :user, dependent: :destroy
+
   validates :payment_method, :pickup_address, :deliver_address, presence: true
-  validates :status, numericality: { less_than_or_equal_to: 5, only_integer: true }
-  belongs_to :vehicle
-  belongs_to :user
+  validates :user_id, presence: true, uniqueness: true
 end

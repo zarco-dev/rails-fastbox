@@ -1,1 +1,14 @@
-<h1>Pagina de nuevo servicio</h1>
+<div class="container mt-3 mb-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>Crea tu nuevo servicio!</h1>
+
+      <%= simple_form_for @service do |f| %>
+        <%= f.input :pickup_address, placeholder: 'Coloca tu dirección de recogida' %>
+        <%= f.input :deliver_address, placeholder: 'Coloca tu dirección de entrega' %>
+        <%= f.input :payment_method, as: :radio_buttons, collection: [['Contra-entrega', 'Contra-entrega'], ['Tarjeta', 'Tarjeta']], label_method: :second, value_method: :first %>
+        <%= f.submit 'Crear servicio', class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
