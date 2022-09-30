@@ -1,5 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
+  background: transparent;
+  transition: 0.5s background-color ease;
+}
+
+.navbar-lewagon-gray {
   background: #3B3939;
 }
 
