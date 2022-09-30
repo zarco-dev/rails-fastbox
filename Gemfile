@@ -13,6 +13,10 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'pundit', '~> 2.2'
 
+gem "dotenv-rails", groups: [:development, :test]
+
+gem 'cloudinary', '~> 1.23'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
