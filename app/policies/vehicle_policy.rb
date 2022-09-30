@@ -10,7 +10,7 @@ class VehiclePolicy < ApplicationPolicy
     true
   end
 
-  def def create
+  def create
     true
   end
 
