@@ -1,1 +1,115 @@
 // Specific CSS for your home-page
+.container-landing-1{
+  width: 45%;
+  padding-left: 50px;
+  // background-color: aqua;
+}
+
+.container-landing-1:last-child{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 70vh;
+  flex-direction: column;
+}
+
+.container-landing-3 {
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-landing-3:last-child {
+  flex-direction: column;
+  text-align: center;
+}
+
+.img-about{
+  width: 300px;
+  transform: scale(2);
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+  margin-bottom: -50px;
+}
+
+.banner-1{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.container-landing-2:first-child {
+  text-align: center;
+}
+
+.container-landing-1 a, .container-landing-2 a{
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.container-info{
+  margin-right: 100px;
+}
+
+.container-info-2 {
+  text-align: end;
+  margin-left: 100px;
+}
+
+.container-info-img{
+  margin-left: 100px;
+  text-align: end;
+}
+
+.container-info-img-2{
+  margin-left: 100px;
+  text-align: start;
+}
+
+
+.img-delivery{
+  width: 70%;
+  height: 90%;
+}
+
+.banner p.paragraph-info{
+  color: rgb(92, 92, 92);
+  text-shadow: none;
+}
+
+.banner-info-2 {
+  background-color: rgb(240, 240, 240);
+}
+
+.container-features {
+  background-color: #fff;
+  // height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.features h2{
+  font-weight: bold;
+}
+
+.features p.paragraph-info {
+  color: rgb(92, 92, 92);
+  text-shadow: none;
+  margin-bottom: 100px;
+}

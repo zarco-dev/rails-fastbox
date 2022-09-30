@@ -1,20 +1,13 @@
 class User < ApplicationRecord
+has_many :services
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-
+  has_one_attached :license
+  has_one_attached :avatar
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
-  # validates :user_type, :username, :birth_date, :first_name, :last_name, :license_type, :gender, :document_number, :document_type, :bonus_code, presence: true
-
-
-
-
-
-
-  has_many :services
-
+  validates :username, presence: true
 end

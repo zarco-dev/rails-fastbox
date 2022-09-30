@@ -2,10 +2,14 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 
+}
+
+.banner:nth-child(7) {
+  height: 90vh;
 }
 
 .banner h1 {
@@ -29,48 +33,4 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-
-.container-first{
-  width: 45%;
-  padding-left: 50px;
-  // background-color: aqua;
-}
-
-.container-first:last-child{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 70vh;
-  flex-direction: column;
-}
-
-.container-info{
-  margin-right: 100px;
-}
-
-.container-info-img{
-  margin-left: 100px;
-}
-
-
-.img-delivery{
-  width: 70%;
-  height: 90%;
-}
-
-.banner p.paragraph-info{
-  color: rgb(92, 92, 92);
-  text-shadow: none;
-}
-
-.container-first a{
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
 }
