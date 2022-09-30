@@ -6,7 +6,7 @@
     <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
   <% end %>
   <%= link_to "New vehicles", new_vehicle_path if policy(vehicle).new? %>
+  <%= link_to "Dashboard", dashboard_path if policy(vehicle).update? || policy(vehicle).new? %>
+
   <%= button_to "Destroy this vehicle", @vehicle, method: :delete if policy(@vehicle).destroy? %>
 </div>
-
-<%= link_to "Dashboard", dashboard_path if policy(vehicle).update? || policy(vehicle).new? %>
