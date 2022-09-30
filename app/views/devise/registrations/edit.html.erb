@@ -1,61 +1,66 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="sign-up-container">
+  <div class="container sign-up-container-center">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+      <h2 class="edit">Editar Usuario</h2>
+      <div class="form-inputs form-edit">
+        <div class='div-1'>
+        <%= f.input :email, required: true, autofocus: true, label: "Correo Electrónico" %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+
+          <%= f.input :password,
+                      hint: "Dejalo en blanco si no lo quieres cambiar",
+                      required: false, label: "Contraseña nueva",
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :username,
+                      required: false,
+                      autofocus: true, label: "Username",
+                      input_html: { autocomplete: "username" } %>
+          <%= f.input :first_name, label: "Nombre",
+                      required: false %>
+          <%= f.input :last_name, label: "Apellidos",
+                      required: false %>
+          <%= f.input :gender, label: "Genero",
+                      required: false %>
+          <%= f.input :birth_date, label: "Fecha de nacimiento",
+                      required: false %>
+        </div>
+        <div class='div-2'>
+          <%= f.input :document_type, label: "Tipo de documento",
+                      required: false %>
+          <%= f.input :document_number, label: "Número documento",
+                      required: false %>
+          <%= f.input :license, as: :file, label: "Licencia de conducción",
+                      required: false %>
+          <div class='avatar-circle'>
+            <%= f.input :avatar, as: :file,
+                        required: false %></div>
+          <%= f.input :bonus_code, label: "Codigo de referido",
+                      required: false %>
+          <%= f.input :password_confirmation, label: "Confirmar constraseña",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password, label: "Contraseña actual",
+                      hint: "Necesitas colocar tu contraseña actual para guardar los cambios",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+      <div class="form-actions">
+        <%= f.button :submit, "Actualizar", class: "btn btn-success" %>
+      </div>
+        </div>
+      </div>
+
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :username,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "username" }%>
-    <%= f.input :first_name,
-                required: false %>
-    <%= f.input :last_name,
-                required: false %>
-    <%= f.input :gender,
-                required: false %>
-    <%# <%= f.input :user_type,
-                required: false %>
-    <%= f.input :birth_date,
-                required: false %>
-    <%= f.input :document_type,
-                required: false %>
-    <%= f.input :document_number,
-                required: false %>
-    <%= f.input :license, as: :file, label: "Licencia de conducción",
-                required: false %>
-    <%= f.input :avatar, as: :file, label: "Foto de perfil",
-                required: false %>
-    <%# <%= f.input :license_type,
-                required: false %>
-    <%= f.input :bonus_code,
-                required: false %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+    <div class='footer-edit'>
+      <p>No quieres mas FastBox? <%= link_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro?" }, method: :delete, class: "btn btn-danger" %></p>
+      <%# <%= link_to "Back", :back %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
