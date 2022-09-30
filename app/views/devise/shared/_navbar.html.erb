@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png", class: "img-navbar" %>
@@ -18,7 +18,8 @@
                 <%= link_to "Dashboard", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <%= image_tag "profile-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# <%= cl_image_tag current_user.license.key, height: 300, width: 400, crop: :fill %> 
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <p class="dropdown-item">@<%= current_user.username %></p>
                 <%= link_to "Editar Perfil", edit_user_registration_path(current_user), class: "dropdown-item" %>
@@ -27,7 +28,7 @@
             </li>
             <% else %>
               <li class="nav-item active links-nav">
-                <%= link_to "Inicio", "#inicio", class: "nav-link" %>
+                <%= link_to "Inicio", root_path, class: "nav-link" %>
               </li>
               <li class="nav-item links-nav">
                 <%= link_to "Servicios", "#servicios", class: "nav-link" %>

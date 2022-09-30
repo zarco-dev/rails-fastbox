@@ -44,6 +44,8 @@ class ApplicationPolicy
 
     def resolve
       raise NotImplementedError, "You must define #resolve in #{self.class}"
+    # scope.where(user: user)
+    # scope.where(driver: driver)
     end
 
     private
