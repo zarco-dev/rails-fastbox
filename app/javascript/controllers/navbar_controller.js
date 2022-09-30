@@ -7,7 +7,7 @@ export default class extends Controller {
 
   updateNavbar() {
     if (window.scrollY >= window.innerHeight) {
-      this.element.classList.toggle("navbar-lewagon-gray")
+      this.element.classList.add("navbar-lewagon-gray")
     } else {
       this.element.classList.remove("navbar-lewagon-gray")
     }

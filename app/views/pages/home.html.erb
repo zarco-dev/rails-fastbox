@@ -82,7 +82,11 @@
 </div>
 
 <% else %>
-  <%= cl_image_tag current_user.license.key, height: 300, width: 400, crop: :fill %>
-  <%= cl_image_tag current_user.avatar.key, height: 300, width: 400, crop: :fill %>
 
+  <% if current_user.license.attached? && current_user.avatar.attached?  %>
+    <%= cl_image_tag current_user.license.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag current_user.avatar.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+    <h2>no tiene</h2>
+  <% end %>
 <% end %>

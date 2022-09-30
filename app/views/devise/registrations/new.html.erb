@@ -25,12 +25,6 @@
                     autofocus: true %>
         <%= f.input :email, label: "Correo Electrónico",
                     required: true, class: "form-control-lg" %>
-        <%# <%= f.input :first_name, label: "Nombre",
-                    required: true %>
-        <%# <%= f.input :last_name, label: "Apellido",
-                    required: true %>
-        <%# <%= f.input :gender, label: "Sexo",
-                    required: true %>
         <%= f.input :birth_date, label: "Fecha de nacimiento", as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 18, order: [:day, :month, :year],
                     required: true %>
         <%= f.hidden_field :user_type,
@@ -65,12 +59,6 @@
         <%= f.input :email, label: "Correo Electrónico",
                     required: true, class: "form-control-lg" %>
         <%= f.input :birth_date, label: "Fecha de nacimiento", as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 18, order: [:day, :month, :year],
-                    required: true %>
-        <%# <%= f.input :first_name, label: "name",
-                    required: true %>
-        <%# <%= f.input :last_name, label: "Apellido",
-                    required: true %>
-        <%# <%= f.input :user_type,
                     required: true %>
         <%= f.hidden_field :user_type,
                     required: true,

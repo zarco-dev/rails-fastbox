@@ -1,4 +1,4 @@
-.container-form {
+.container-form-2 {
   background-color: #fff;
   box-shadow: 2px 2px 8px rgba(53, 52, 52, 0.5);
   border-radius: 20px;
@@ -15,4 +15,23 @@
   -o-border-radius: 20px;
   margin-top: 100px;
   margin-bottom: -50px;
+}
+
+.container-form-2 h2 span{
+  color: #198754;
+}
+
+.container-form-2 h2{
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.container-form-2 input {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  padding-left: 20px;
 }
