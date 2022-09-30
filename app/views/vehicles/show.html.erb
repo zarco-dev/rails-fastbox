@@ -1,8 +1,10 @@
 
+<h2>Vehicle Date</h2>
+
 <div>
   <% if policy(@vehicle).edit? %>
     <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
   <% end %>
-  <%= link_to "Back to vehicles", vehicles_path %>
+  <%= link_to "New vehicles", new_vehicle_path if policy(Restaurant).new? %>
   <%= button_to "Destroy this vehicle", @vehicle, method: :delete if policy(@vehicle).destroy? %>
 </div>

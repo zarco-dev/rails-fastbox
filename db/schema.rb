@@ -86,8 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_020318) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "services", "users"
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "services", "users"
 end
