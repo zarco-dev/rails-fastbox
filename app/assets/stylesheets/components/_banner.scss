@@ -2,10 +2,14 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 
+}
+
+.banner:nth-child(7) {
+  height: 90vh;
 }
 
 .banner h1 {
