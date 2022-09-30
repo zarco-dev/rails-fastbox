@@ -11,7 +11,7 @@
 .div-2 {
   padding: 20px 80px;
   width: 50%;
-  background-color: rgb(221, 221, 221);
+  background-color: rgba(238, 234, 234, 0.774);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-right-radius: 0;
@@ -42,7 +42,6 @@
 }
 
 .avatar-circle {
-  background-color: red;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -50,5 +49,10 @@
   -o-border-radius: 50%;
   overflow: hidden;
   width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+  margin: 0 auto;
 
 }
