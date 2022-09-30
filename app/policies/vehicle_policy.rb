@@ -10,7 +10,7 @@ class VehiclePolicy < ApplicationPolicy
     true
   end
 
-  def create?
+=begin def create?
     true
   end
 
@@ -21,4 +21,6 @@ class VehiclePolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+=end
+
 end

@@ -25,6 +25,7 @@ class VehiclesController < ApplicationController
   private
 
   def set_vehicle
+    @vehicle = Vehicle.find(params[:id])
     authorize @vehicle
   end
 
