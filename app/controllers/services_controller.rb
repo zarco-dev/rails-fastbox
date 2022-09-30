@@ -1,6 +1,11 @@
 class ServicesController < ApplicationController
+  def index
+    @services = Service.all
+  end
+
   def show
     @service = Service.find(params[:id])
+    authorize @service
   end
 
   def new
@@ -17,6 +22,13 @@ class ServicesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @service = Service.find(params[:id])
+    @service.destroy
+    redirect_to users_path
+    authorize @service
   end
 
   private

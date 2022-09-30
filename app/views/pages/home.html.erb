@@ -87,6 +87,15 @@
     <%= cl_image_tag current_user.license.key, height: 300, width: 400, crop: :fill %>
     <%= cl_image_tag current_user.avatar.key, height: 300, width: 400, crop: :fill %>
     <% else %>
-    <h2>no tiene</h2>
+    <!--<h2>no tiene</h2>-->
   <% end %>
+  <div class="banner banner2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);">
+    <% @services.each do |service| %>
+      <div class="container">
+        <div class="card my-5 p-3">
+          <h3><%= link_to service.pickup_address, service_path(service) %></h3>
+        </div>
+      </div>
+  <% end %>
+  </div>
 <% end %>
