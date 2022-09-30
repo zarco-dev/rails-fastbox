@@ -24,7 +24,7 @@
                 required: false %>
     <%= f.input :gender,
                 required: false %>
-    <%= f.input :user_type,
+    <%# <%= f.input :user_type,
                 required: false %>
     <%= f.input :birth_date,
                 required: false %>
@@ -32,7 +32,11 @@
                 required: false %>
     <%= f.input :document_number,
                 required: false %>
-    <%= f.input :license_type,
+    <%= f.input :license, as: :file, label: "Licencia de conducción",
+                required: false %>
+    <%= f.input :avatar, as: :file, label: "Foto de perfil",
+                required: false %>
+    <%# <%= f.input :license_type,
                 required: false %>
     <%= f.input :bonus_code,
                 required: false %>

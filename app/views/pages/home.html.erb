@@ -82,6 +82,7 @@
 </div>
 
 <% else %>
-  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag current_user.license.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag current_user.avatar.key, height: 300, width: 400, crop: :fill %>
 
 <% end %>
