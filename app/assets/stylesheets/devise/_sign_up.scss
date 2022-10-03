@@ -1,10 +1,12 @@
 .sign-up-container {
   width: 100%;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);
+  background-image: linear-gradient(-45deg, rgba(0,0,0,0.9),rgba(0,0,0,0.7));
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1200px;
-  padding-top: 66px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sign-up-container-center {
@@ -143,15 +145,16 @@
 
 .container-button {
   text-align: center;
+  margin: 25px 0;
 }
 
 .container-button a{
   text-decoration: none;
-  color: #198754;
+  color: #000;
 }
 
 .container-button a:hover{
-  color: #095833;
+  border-bottom: 1px solid #FECE6B ;
 }
 
 .container-form input {
@@ -163,9 +166,9 @@
   padding-left: 20px;
 }
 
-input:focus, select:focus, select, input.form-control:focus {
+input:focus, select:focus, select, input.form-control:focus{
   box-shadow: none;
-  border-color: #198754;
+  border-color: #FECE6B;
 }
 
 .img-background {
@@ -177,7 +180,13 @@ input:focus, select:focus, select, input.form-control:focus {
 .banner2 {
   flex-direction: column;
  }
- 
+
 .container-form-a {
   background-color: red;
+}
+
+@media (max-width: 1370px) {
+  .sign-up-container {
+    padding-top: 60px;
+  }
 }
