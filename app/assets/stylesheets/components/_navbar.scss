@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #3B3939;
+  background: transparent;
   transition: 0.5s background-color ease;
 }
 
@@ -15,11 +15,12 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
   transform: scale(4);
-  margin-left: 60px;
+  margin-left: 100px;
   -webkit-transform: scale(4);
   -moz-transform: scale(4);
   -ms-transform: scale(4);
   -o-transform: scale(4);
+  margin-top: 8px;
 }
 
 .btn-nav, .links-nav {
@@ -30,8 +31,8 @@
   color: white;
 }
 
-.links-nav a:hover {
-  color: #FECE6B;
+.links-nav a:hover, .text-white:hover {
+  color: #FECE6B !important;
 }
 
 .btn-login-sign-up {

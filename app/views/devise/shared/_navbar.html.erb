@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png", class: "img-navbar" %>
+    <%= link_to root_path, class: "navbar-brand animate__animated animate__bounceInLeft" do %>
+      <%= image_tag "logo.png" %>
     <% end %>
 
 
@@ -42,11 +42,17 @@
               <li class="nav-item links-nav">
                 <%= link_to "Acerca de nosotros", "#nosotros", class: "nav-link" %>
               </li>
-              <li class="nav-item btn-nav">
-                <%= link_to "Inicia Sesión", new_user_session_path, class: "btn btn-warning" %>
+              <li class="nav-item links-nav">
               </li>
               <li class="nav-item btn-nav">
-                <%= link_to "Registrarse", new_user_registration_path, class: "btn btn-warning" %>
+                <%= link_to new_user_session_path, class: "btn text-white" do %>
+                    Inicia sesión <i class="fa-solid fa-right-to-bracket"></i>
+                <% end %>
+              </li>
+              <li class="nav-item btn-nav">
+                <%= link_to new_user_registration_path, class: "btn btn-warning" do %>
+                    Comienza gratis <i class="fa-solid fa-user-plus"></i>
+                <% end %>
               </li>
           <% end %>
         <%# else %>
