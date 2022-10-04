@@ -1,12 +1,17 @@
-<div class="container my-5 p-5">
-  <h1>Registro del Vehiculo</h1>
-  <%= simple_form_for @vehicle do |f| %>
-    <%= f.input :plate_number, placeholder: 'Numero de placa' %>
-    <%= f.input :vehicle_type, placeholder: 'Tipo de vehicle' %>
-    <%= f.input :vehicle_branding, placeholder: 'Marca de vehiculo' %>
-    <%= f.input :model, placeholder: 'Modelo' %>
-    <%= f.submit 'Crear vehiculo', class: "btn btn-success" %>
-    <% end %>
+<div class="main-container">
+  <div class="img-vehicle">
+    <img src="" alt="" class="vehicle">
+  </div>
+  <div class="container my-5 p-5">
+    <h2>Registro del <span>Vehículo</span></h2>
+    <%= simple_form_for @vehicle do |f| %>
+      <%= f.input :plate_number, placeholder: 'Numero de placa' %>
+      <%= f.input :vehicle_type, placeholder: 'Tipo de vehicle'%>
+      <%= f.input :vehicle_branding, placeholder: 'Marca de vehiculo' %>
+      <%= f.input :model, placeholder: 'Modelo'%>
+      <%= f.submit 'Crear vehículo', class: "btn btn-success" %>
+      <% end %>
+  </div>
 </div>
 
   <!-- <%= form_with model: @vehicles do |f| %>
