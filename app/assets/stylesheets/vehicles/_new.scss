@@ -27,7 +27,17 @@ body{
   background-color: #e9e9e9;
   border-radius: 15px;
 
+  animation: container ease-in 1 2s;
+
 }
+
+@keyframes container{
+	0%{ transform: translatey(200%);
+	}
+	100%{ transform: translatey(0%);}
+
+}
+
 .btn-success{
   border-radius: 20px;
   background-color: #fece6f;
@@ -49,4 +59,13 @@ span{
   width: 80%;
   display:grid;
   margin: auto;
+  animation: motion ease-in 1 1s;
+
+}
+
+@keyframes motion{
+	0%{ transform: translatex(-200%);
+	}
+	100%{ transform: translatex(0%);}
+
 }
