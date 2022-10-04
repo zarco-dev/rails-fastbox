@@ -30,9 +30,9 @@
                       required: true %>
 
 
-          <%= f.hidden_field :user_type,
-                      required: true, class: "usertype",
-                      value: 'personal' %>
+          <div data-sign-up-target="usertype"><%= f.hidden_field :user_type,
+                      required: true,
+                      value: 'personal' %></div>
         </div>
 
         <div class="pt-2">
