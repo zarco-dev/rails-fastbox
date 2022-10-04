@@ -1,13 +1,13 @@
 
 <% if !user_signed_in? %>
-<div class="banner" style="background-image: linear-gradient(-45deg, rgba(0,0,0,0.9),rgba(0,0,0,0.7))">
+<div class="banner">
   <div class="container container-landing-1">
     <h1>Tu lo pides, <strong>Nosotros lo llevamos!</strong></h1>
     <p>Creamos un sistema rápido de entrega, donde con unos solos clicks podras enviar tu producto de una forma sencilla.</p>
     <%= link_to "Empezar", new_user_session_path, class: "btn btn-warning" %>
   </div>
   <div class="container container-landing-1">
-    <%= image_tag "delivery.png", class: "img-delivery" %>
+    <%= image_tag "home-gif.gif", class: "img-delivery" %>
   </div>
 </div>
   <div id="inicio" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);">

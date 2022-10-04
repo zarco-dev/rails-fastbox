@@ -5,7 +5,12 @@
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
 
+.banner:nth-child(2) {
+  padding: 0;
+  background-color: #272727;
 }
 
 .banner:nth-child(7) {
