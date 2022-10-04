@@ -7,20 +7,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 70px;
-}
-
-.container-landing-1:last-child {
-  width: 48%;
-  padding: 0;
+  padding: 0 20px 0 100px;
 }
 
 .container-landing-1:last-child{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 80vh;
   flex-direction: column;
+  width: 48%;
+  padding: 0;
 }
 
 .container-landing-3 {
@@ -29,6 +26,28 @@
   justify-content: center;
   align-items: center;
 }
+
+.container-landing-2:first-child {
+  width: 48%;
+  //padding-left: 50px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.container-landing-2:last-child{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 80vh;
+  flex-direction: column;
+  width: 48%;
+  padding: 0;
+}
+
 
 .container-landing-3:last-child {
   flex-direction: column;
@@ -51,12 +70,14 @@
   justify-content: space-around;
 }
 
-.container-landing-2:first-child {
-  text-align: center;
+.container-landing-1 h1, .container-landing-2 h1 {
+  font-size: 3.5em;
+  margin-bottom: 35px;
 }
 
-.container-landing-1 h1 {
-  font-size: 3.5em;
+.container-landing-1 p, .container-landing-2 p {
+  font-size: 1.7em;
+  margin-bottom: 35px;
 }
 
 .container-landing-1 a, .container-landing-2 a{
@@ -105,9 +126,10 @@
 
 .container-features {
   background-color: #fff;
-  // height: 500px;
+  height: 100vh;
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
 .features {
@@ -116,14 +138,82 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  height: 80vh;
+  padding: 0;
+}
+
+.cards-container {
+  width: 1250px !important;
+  height: 50vh;
+}
+
+.card-c {
+  height: 35vh;
+  width: 100%;
+  padding: 20px;
+}
+
+.card-c span {
+  font-size: 1.5em;
+  margin-top: 30px;
 }
 
 .features h2{
-  font-weight: bold;
+  font-size: 3.5em;
+  margin-bottom: 15px;
 }
 
 .features p.paragraph-info {
   color: rgb(92, 92, 92);
   text-shadow: none;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
+}
+
+@media (max-width: 1370px) {
+  .container-landing-1 h1, .container-landing-2 h1 {
+    font-size: 3.0em;
+    margin-bottom: 25px;
+  }
+
+  .container-landing-1 p, .container-landing-2 p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+  }
+
+  .container-landing-1:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 77vh;
+    flex-direction: column;
+    width: 45%;
+    padding: 10px 0 0 0;
+  }
+
+  .features {
+    height: 80vh;
+    padding: 0;
+  }
+
+  .cards-container {
+    width: 900px !important;
+    height: 40vh;
+  }
+
+  .card-c span {
+    font-size: 1.2em;
+    margin-top: 20px;
+  }
+
+  .features h2{
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .features p.paragraph-info {
+    color: rgb(92, 92, 92);
+    text-shadow: none;
+    margin-bottom: 100px;
+  }
+
 }

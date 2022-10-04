@@ -54,6 +54,15 @@
   text-align: center;
 }
 
+.btn-call {
+  padding: 13px 30px;
+  border-radius: 5px !important;
+  -webkit-border-radius: 5px !important;
+  -moz-border-radius: 5px !important;
+  -ms-border-radius: 5px !important;
+  -o-border-radius: 5px !important;
+}
+
 @media (max-width: 1370px) {
   .container-form-2 {
     width: 700px;
