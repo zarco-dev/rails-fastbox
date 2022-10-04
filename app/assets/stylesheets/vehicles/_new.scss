@@ -14,7 +14,7 @@ body{
   flex-direction: row;
   align-items: center;
   margin: 0px auto;
-  gap: 30px;
+  gap: 50px;
 
 }
 .img-vehicle {
@@ -44,4 +44,9 @@ h2{
 }
 span{
   color: #ebbf63;
+}
+.pic-delivery{
+  width: 80%;
+  display:grid;
+  margin: auto;
 }
