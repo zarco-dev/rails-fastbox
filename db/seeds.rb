@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "LukFaker::Name.first_namee", movie: movies.first)
-# User.destroy_all
-# Service.destroy_all
+User.destroy_all
+Service.destroy_all
 
 # 10.times do
 #   User.create(

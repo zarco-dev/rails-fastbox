@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="sign-up"
-// let type_user = document.querySelector(".usertype");
 
 export default class extends Controller {
 
@@ -27,6 +26,5 @@ export default class extends Controller {
     this.usersTarget.classList.add("ocultar");
     this.marcoTarget.classList.remove("marco");
     this.usertypeTarget.innerHTML = `<input required="required" value="driver" autocomplete="off" type="hidden" name="user[user_type]" id="user_user_type">`;
-    // type_user.value = "driver";
   }
 }
