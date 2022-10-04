@@ -6,6 +6,7 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   def create

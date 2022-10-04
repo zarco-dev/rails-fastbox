@@ -14,12 +14,12 @@ class VehiclePolicy < ApplicationPolicy
     true
   end
 
-=begin def update?
+  def update?
     record.user == user
   end
 
-  def destroy?
+=begin def destroy?
     record.user == user
-  end
 =end
+
 end
