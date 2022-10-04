@@ -9,5 +9,4 @@ Rails.application.routes.draw do
 
   resources :vehicles, only: [ :new, :create, :show ]
   resources :services, except: :update
-
 end

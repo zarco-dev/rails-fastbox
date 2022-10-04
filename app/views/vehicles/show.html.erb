@@ -1,3 +1,17 @@
+<h1>Registro del Vehiculo</h1>
+
+<%= form_with model: @vehicles do |f| %>
+  <%= f.label :plate_number %>
+  <%= f.text_field :plate_number %>
+  <%= f.label :vehicle_type %>
+  <%= f.text_field :vehicle_type %>
+  <%= f.label :vehicle_branding %>
+  <%= f.number_field :vehicle_branding %>
+  <%= f.label :model %>
+  <%= f.number_field :model %>
+  <%= f.submit %>
+<% end %>
+
 
  <h2>What do you wanna do?</h2>
 
@@ -6,7 +20,9 @@
     <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
   <% end %>
   <%= link_to "New vehicles", new_vehicle_path if policy(@vehicle).new? %>
-  <%= link_to "Dashboard", dashboard_path if policy(@vehicle).update? || policy(@vehicle).new? %>
 
   <%= button_to "Destroy this vehicle", @vehicle, method: :delete if policy(@vehicle).destroy? %>
+
+  <%= link_to "Dashboard", dashboard_path if policy(@vehicle).update? || policy(@vehicle).new? %>
+
 </div>
