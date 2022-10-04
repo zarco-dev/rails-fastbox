@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_164616) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_03_230645) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_164616) do
     t.string "payment_method"
     t.string "pickup_address"
     t.string "deliver_address"
-    t.integer "status"
+    t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -73,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_164616) do
     t.integer "document_number"
     t.string "bonus_code"
     t.string "user_type"
+    t.string "has_bonuscode", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

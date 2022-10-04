@@ -1,22 +1,28 @@
 <div class="sign-up-container">
-  <div class="container sign-up-container-center">
+  <div class="container sign-up-container-center-2">
     <div class="form-inputs container-form-2">
       <h2>Inicia Sesión</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
         <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
+            <%= f.input :email, label: 'Correo electrónico',
+                        required: false,
+                        class: "input-group",
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+            <i class="fa-solid fa-envelope icon-position"></i>
+
+          <%= f.input :password, label: "Contraseña",
                       required: false,
                       input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            <i class="fa-solid fa-lock icon-position"></i>
+          <%# <%= f.input :remember_me, label: "Recuerdame", as: :boolean if devise_mapping.rememberable? %>
         </div>
 
         <div class="form-actions container container-button">
-          <%= f.button :submit, "Iniciar sesión", class: "btn btn-success" %>
+          <%= f.button :submit, "Iniciar sesión", class: "btn btn-warning" %>
+        </div>
+        <div class="form-actions container container-button">
           <%= render "devise/shared/links" %>
         </div>
       <% end %>

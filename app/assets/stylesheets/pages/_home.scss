@@ -1,15 +1,25 @@
 // Specific CSS for your home-page
 .container-landing-1{
-  width: 45%;
-  padding-left: 50px;
-  // background-color: aqua;
+  width: 48%;
+  //padding-left: 50px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 70px;
+}
+
+.container-landing-1:last-child {
+  width: 48%;
+  padding: 0;
 }
 
 .container-landing-1:last-child{
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  height: 70vh;
+  align-items: center;
+  height: 80vh;
   flex-direction: column;
 }
 
@@ -45,6 +55,10 @@
   text-align: center;
 }
 
+.container-landing-1 h1 {
+  font-size: 3.5em;
+}
+
 .container-landing-1 a, .container-landing-2 a{
   color: rgb(0, 0, 0);
   font-weight: bold;
@@ -76,8 +90,8 @@
 
 
 .img-delivery{
-  width: 70%;
-  height: 90%;
+  width: 90%;
+  height: 100%;
 }
 
 .banner p.paragraph-info{
