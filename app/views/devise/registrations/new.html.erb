@@ -1,4 +1,4 @@
-<div class="sign-up-container" data-controller="sign-up">
+<div class="sign-up-container top-container" data-controller="sign-up">
   <div class="container sign-up-container-center">
     <div class='container-user'>
       <%# <%= user = button_to "hola", root_path %>
@@ -18,40 +18,42 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
         <%= f.error_notification %>
 
-    <div data-sign-up-target="marco" class="form-inputs container-form" >
+    <div data-sign-up-target="marco" class="form-inputs container-form animate__animated animate__pulse">
+        <div class="pt-1">
       <h2>Crea tu cuenta <span data-sign-up-target="typeuser"></span></h2>
-        <%= f.input :username,
-                    required: true,
-                    autofocus: true %>
-        <%= f.input :email, label: "Correo Electrónico",
-                    required: true, class: "form-control-lg" %>
-        <%= f.input :birth_date, label: "Fecha de nacimiento", as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 18, order: [:day, :month, :year],
-                    required: true %>
+          <%= f.input :username,
+                      autofocus: true %>
+          <%= f.input :email, label: "Correo Electrónico",
+                      required: true, class: "form-control-lg" %>
+          <%= f.input :birth_date, label: "Fecha de nacimiento", as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 18, order: [:day, :month, :year],
+                      required: true %>
 
 
-        <%= f.hidden_field :user_type,
-                    required: true, class: "usertype",
-                    value: 'personal' %>
+          <div data-sign-up-target="usertype"><%= f.hidden_field :user_type,
+                      required: true,
+                      value: 'personal' %></div>
+        </div>
 
+        <div class="pt-2">
+          <div data-sign-up-target="licensefield"><%= f.input :license, as: :file, label: "Licencia de conducción" %></div>
+          <div data-sign-up-target="bonuscode"><%= f.input :has_bonuscode, label: "¿Tienes un código de referido?"%></div>
+          <%= f.hidden_field :bonus_code,
+                      required: true, class: "usertype",
+                      value: "#{("a".."z").to_a.sample}#{rand(99)}#{("a".."z").to_a.sample}#{%w(! @ # $ %).sample}#{rand(99)}#{("A".."Z").to_a.sample}" %>
+          <%= f.input :password, label: "Contraseña",
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation, label: "Confirmar contraseña",
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
 
-
-        <div data-sign-up-target="licensefield"><%= f.input :license, as: :file, label: "Licencia de conducción" %></div>
-
-
-        <div data-sign-up-target="bonuscode"><%= f.input :bonus_code, label: "¿Tienes un código de referido?",
-                    required: true %></div>
-
-        <%= f.input :password, label: "Contraseña",
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation, label: "Confirmar contraseña",
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
-
-      <div class="form-actions container container-button">
-        <%= f.button :submit, "Regístrate ahora", class: "btn btn-success" %>
-        ó ¿Ya tienes cuenta?  <%= render "devise/shared/links" %>
+        <div class="form-actions container container-button-2">
+          <%= f.button :submit, "Regístrate ahora", class: "btn btn-warning" %>
+        </div>
+        <div class="form-actions container container-button-2">
+          ó ¿Ya tienes cuenta?  <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
 

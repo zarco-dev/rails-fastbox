@@ -1,16 +1,23 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: %i[new create show update destroy]
+  before_action :set_vehicle, only: %i[show update destroy]
   def index
     @vehicles = policy_scope(Vehicle)
   end
 
   def new
     @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
+    authorize @vehicle
+    if @vehicle.save
+      redirect_to @vehicle
+    else
+      render :new
+    end
   end
 
   def show

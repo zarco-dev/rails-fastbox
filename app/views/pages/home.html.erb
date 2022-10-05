@@ -1,23 +1,23 @@
 
 <% if !user_signed_in? %>
-<div class="banner" style="background-image: linear-gradient(-45deg, rgba(0,0,0,0.9),rgba(0,0,0,0.7))">
+<div class="banner">
   <div class="container container-landing-1">
     <h1>Tu lo pides, <strong>Nosotros lo llevamos!</strong></h1>
-    <p>Creamos un sistema rápido de entrega, donde con unos solos clicks podras enviar tu producto de una forma sencilla.</p>
-    <%= link_to "Empezar", new_user_session_path, class: "btn btn-warning" %>
+    <p>Creamos un sistema rápido de entrega, donde con unos solos clicks podras enviar tu producto de una forma sencilla y segura.</p>
+    <%= link_to "Empezar", new_user_session_path, class: "btn btn-warning btn-call" %>
   </div>
   <div class="container container-landing-1">
-    <%= image_tag "delivery.png", class: "img-delivery" %>
+    <%= image_tag "home-gif.gif", class: "img-delivery" %>
   </div>
 </div>
-  <div id="inicio" class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);">
+  <div id="inicio" class="banner" style="background-color: #144F41">
     <div class="container container-landing-2">
       <%= image_tag "pin.gif", class: "img-delivery" %>
     </div>
     <div class="container container-landing-2">
       <h1>Revisa donde va tu entrega</h1>
       <p>Puedes verificar en que punto se encuentra tu pedido, ya sea en ruta o entregado y cualquier novedad que se presente con este.</p>
-      <%= link_to "Tracking", "#", class: "btn btn-warning" %>
+      <%= link_to "Tracking", "#", class: "btn btn-warning btn-call" %>
     </div>
   </div>
 
@@ -46,20 +46,20 @@
     <div class="container features">
       <h2>Nuestras Caracteristicas</h2>
       <p class="paragraph-info">Somos los mejores para tus necesidades, siempre con las mejores tecnologias</p>
-      <div class="cards w-75">
-          <div class="card-category">
+      <div class="cards w-75 cards-container">
+          <div class="card-category card-c">
             <%= image_tag "feature-1.png", class: "img-delivery" %>
-            <h2>Entregas inmediatas</h2>
+            <span>Entregas inmediatas</span>
           </div>
 
-          <div class="card-category">
+          <div class="card-category card-c">
             <%= image_tag "feature-2.png", class: "img-delivery" %>
-            <h2>Pagos contraentrega</h2>
+            <span>Pagos contraentrega</span>
           </div>
 
-          <div class="card-category">
+          <div class="card-category card-c">
             <%= image_tag "feature-3.png", class: "img-delivery" %>
-            <h2>Vehículos Unicos</h2>
+            <span>Vehículos Unicos</span>
           </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
     </div>
     <div class="container container-landing-3">
       <p>Somos una empresa con valores y estamos dispuesto a poner la mejor tecnologia al servicio de los usuarios.</p>
-      <%= link_to "Empezar", new_user_session_path, class: "btn btn-warning" %>
+      <%= link_to "Empezar", new_user_session_path, class: "btn btn-warning btn-call" %>
     </div>
   </div>
 
