@@ -11,6 +11,7 @@ export default class extends Controller {
     this.marcoTarget.classList.add("marco");
   }
 
+
   user() {
     this.typeuserTarget.innerHTML = "Personal";
     this.licensefieldTarget.classList.add("ocultar");

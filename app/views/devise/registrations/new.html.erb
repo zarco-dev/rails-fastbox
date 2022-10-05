@@ -22,7 +22,6 @@
         <div class="pt-1">
       <h2>Crea tu cuenta <span data-sign-up-target="typeuser"></span></h2>
           <%= f.input :username,
-                      required: true,
                       autofocus: true %>
           <%= f.input :email, label: "Correo Electrónico",
                       required: true, class: "form-control-lg" %>
@@ -37,8 +36,7 @@
 
         <div class="pt-2">
           <div data-sign-up-target="licensefield"><%= f.input :license, as: :file, label: "Licencia de conducción" %></div>
-          <div data-sign-up-target="bonuscode"><%= f.input :has_bonuscode, label: "¿Tienes un código de referido?",
-                      required: true %></div>
+          <div data-sign-up-target="bonuscode"><%= f.input :has_bonuscode, label: "¿Tienes un código de referido?"%></div>
           <%= f.hidden_field :bonus_code,
                       required: true, class: "usertype",
                       value: "#{("a".."z").to_a.sample}#{rand(99)}#{("a".."z").to_a.sample}#{%w(! @ # $ %).sample}#{rand(99)}#{("A".."Z").to_a.sample}" %>
