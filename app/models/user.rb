@@ -10,5 +10,5 @@ class User < ApplicationRecord
 
   validates :username, presence: true
 
-  has_many :services
+  has_many :services, dependent: :delete_all
 end

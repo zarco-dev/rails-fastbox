@@ -89,11 +89,26 @@
     <% else %>
     <!--<h2>no tiene</h2>-->
   <% end %>
-  <div class="banner banner2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);">
-    <% @services.each do |service| %>
+  <div class="banner banner2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg); height: 800px;">
+  <h1>Mis servicios</h1>
+    <% @services.each_with_index do |service, index| %>
       <div class="container">
-        <div class="card my-5 p-3">
-          <h3><%= link_to service.pickup_address, service_path(service) %></h3>
+        <div class="service-card">
+          <div class="service-number">
+            <p><%= index + 1 %></p>
+          </div>
+          <div class="card my-2 p-3 d-flex flex-row">
+            <div class="flex-grow-1">
+              <%= link_to service_path(service), style:"text-decoration: none; color: black;" do %>
+                <h5>Dirección de recogida: <%= service.pickup_address %></h5>
+                <h5>Dirección de entrega: <%= service.deliver_address %></h5>
+              <% end %>
+            </div>
+            <div class="text-end">
+              <p style="color: black;"><em>No hay ningún conductor a cargo...</em></p>
+              <h5>Estado: <span class="badge rounded-pill bg-secondary"><%= service.status %></span></h5>
+            </div>
+          </div>
         </div>
       </div>
   <% end %>

@@ -27,7 +27,7 @@ class ServicesController < ApplicationController
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
-    redirect_to users_path
+    redirect_to root_path
     authorize @service
   end
 
