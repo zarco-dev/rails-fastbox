@@ -1,12 +1,12 @@
-<div class="sign-up-container">
-  <div class="container sign-up-container-center">
+<div class="edit-container">
+  <div class="edit-container-center">
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
-      <h2 class="edit">Editar Usuario</h2>
       <div class="form-inputs form-edit">
         <div class='div-1'>
+        <h2 class="edit">Editar Usuario</h2>
         <%= f.input :email, required: true, autofocus: true, label: "Correo Electrónico" %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -31,36 +31,39 @@
                     required: true %>
         </div>
         <div class='div-2'>
-          <div class='avatar-circle' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path current_user.avatar.key if current_user.avatar.attached?  %>')" >
-            <%= f.input :avatar, as: :file,
-                        required: false %></div>
-          <%= f.input :document_type, label: "Tipo de documento", collection: ['CC', "CE", "Pasaporte", "Otro"], prompt: "Selecciona",
-                      required: false %>
-          <%= f.input :document_number, label: "Número documento",
-                      required: false %>
-          <%= f.input :license, as: :file, label: "Licencia de conducción",
-                      required: false %>
-          <%= f.input :bonus_code, label: "Codigo de referido",
-                      required: false %>
-          <%= f.input :password_confirmation, label: "Confirmar constraseña",
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :current_password, label: "Contraseña actual",
-                      hint: "Necesitas colocar tu contraseña actual para guardar los cambios",
-                      required: true,
-                      input_html: { autocomplete: "current-password" } %>
-      <div class="form-actions">
-        <%= f.button :submit, "Actualizar", class: "btn btn-success" %>
-      </div>
+            <div class='avatar-circle' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path current_user.avatar.key if current_user.avatar.attached?  %>')" >
+              <%= f.input :avatar, as: :file,
+                          required: false %></div>
+            <%= f.input :document_type, label: "Tipo de documento", collection: ['CC', "CE", "Pasaporte", "Otro"], prompt: "Selecciona",
+                        required: false %>
+            <%= f.input :document_number, label: "Número documento",
+                        required: false %>
+
+            <% if current_user.user_type == "driver" %>
+              <%= f.input :license, as: :file, label: "Licencia de conducción",
+                          required: false %>
+            <% end %>
+
+
+            <%= f.input :bonus_code, label: "Codigo de referido",
+                        required: false %>
+            <%= f.input :password_confirmation, label: "Confirmar constraseña",
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :current_password, label: "Contraseña actual",
+                        hint: "Necesitas colocar tu contraseña actual para guardar los cambios",
+                        required: true,
+                        input_html: { autocomplete: "current-password" } %>
+            <div class="form-actions">
+              <%= f.button :submit, "Actualizar", class: "btn btn-warning btn-call" %>
+            </div>
         </div>
       </div>
 
-
-    <% end %>
-    <div class='footer-edit'>
-      <p>No quieres mas FastBox? <%= link_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro?" }, method: :delete, class: "btn btn-danger" %></p>
-      <%# <%= link_to "Back", :back %>
-    </div>
+      <% end %>
+      <div class='footer-edit'>
+        <p>No quieres más FastBox? <%= link_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "Estas seguro?" }, method: :delete, class: "btn btn-danger" %></p>
+        <%# <%= link_to "Back", :back %>
+      </div>
   </div>
-
 </div>
