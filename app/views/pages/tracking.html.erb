@@ -4,7 +4,15 @@
       <h2> Rastrea tu <span> Pedido </span> </h2>
 
       <p>Por favor ingresa el código de tu guía</p>
-      <a href="#" class="search">Buscar</a>
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control">
+          <input class="form-control" type="text" name="search[query]" id="search_query" />
+          <button name="button" type="submit" class="search">
+            <i class="fas fa-search"></i> Buscar
+          </button>
+        </div>
+      <% end %>
+      <!-- <a href="#" class="search">Buscar</a> -->
     </div>
 
     <%= image_tag "tracking.jpg", class: "tracking-image" %>
