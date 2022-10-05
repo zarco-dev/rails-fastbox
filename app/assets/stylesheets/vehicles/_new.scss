@@ -34,22 +34,29 @@
 
 }
 
-.register_container .btn-yellow{
+.register-container .yellow-btn{
+  padding: 10px 15px;
   border-radius: 20px;
-  background-color: #fece6f;
+  background-color: $yellow;
   width:100%;
-  transition: 1s;
+  transition: .5s;
   border: 1px solid #fece6f;
+  font-size: 20px;
+  color: #36b86e;
+  font-weight: 600;
 
 }
-// .btn-success:hover{
-//   background-color: #fece6f;
-// }
-.register_container h2{
+.register-container .yellow-btn:hover{
+  background-color: #36b86e;
+  border: 1px solid #36b86e;
+  color: #fece6f;
+}
+.register-container h2{
   color: #000000;
 }
-.register_container span{
+.register-container .letter-title{
   color: #ebbf63;
+  font-family: 700;
 }
 .vehicle-img .pic-delivery{
   width: 80%;

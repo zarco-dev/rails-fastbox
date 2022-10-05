@@ -4,13 +4,13 @@
       <%= image_tag "delivery.png", class: "pic-delivery" %>
     </div>
     <div class="register-container my-5 p-5">
-      <h2>Registro del <span>Vehículo</span></h2>
+      <h2>Registro del <span class="letter-title">Vehículo</span></h2>
       <%= simple_form_for @vehicle do |f| %>
         <%= f.input :plate_number, placeholder: 'Numero de placa' %>
-        <%= f.input :vehicle_type, placeholder: 'Tipo de vehicle'%>
+        <%= f.input :vehicle_type, placeholder: 'Tipo de vehicle' %>
         <%= f.input :vehicle_branding, placeholder: 'Marca de vehiculo' %>
-        <%= f.input :model, placeholder: 'Modelo'%>
-        <%= f.submit 'Crear vehículo', class: "btn btn-yellow" %>
+        <%= f.input :model, placeholder: 'Modelo' %>
+        <%= f.submit 'Crear vehículo', class: "yellow-btn" %>
         <% end %>
     </div>
   </div>
