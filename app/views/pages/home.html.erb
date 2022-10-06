@@ -89,24 +89,39 @@
     <% else %>
     <!--<h2>no tiene</h2>-->
   <% end %>
-  <div class="banner banner2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg); height: 800px;">
-  <h1>Mis servicios</h1>
+  <div class="banner banner2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg); height: 100%">
+
+    <% if current_user.user_type == "driver" %>
+      <h1 class="mt-5">Servicios disponibles</h1>
+    <% elsif current_user.user_type == "user" %>
+      <h1 class="mt-5">Mis servicios</h1>
+    <% end %>
+
     <% @services.each_with_index do |service, index| %>
-      <div class="container">
+      <div class="container mt-3 mb-3">
         <div class="service-card">
           <div class="service-number">
             <p><%= index + 1 %></p>
           </div>
           <div class="card my-2 p-3 d-flex flex-row">
             <div class="flex-grow-1">
-              <%= link_to service_path(service), style:"text-decoration: none; color: black;" do %>
+            <h4 class="pb-3">Servicio de: <strong><%= service.user.email %></strong></h4>
+            <% if service.user == current_user %>
+                <%= link_to service_path(service), style:"text-decoration: none; color: black;" do %>
                 <h5>Dirección de recogida: <%= service.pickup_address %></h5>
                 <h5>Dirección de entrega: <%= service.deliver_address %></h5>
               <% end %>
+              <% else %>
+                <%= link_to edit_service_path(service), style:"text-decoration: none; color: black;" do %>
+                <h5>Dirección de recogida: <%= service.pickup_address %></h5>
+                <h5>Dirección de entrega: <%= service.deliver_address %></h5>
+              <% end %>
+            <% end %>
             </div>
-            <div class="text-end">
+            <div class="text-end align-items-end">
               <p style="color: black;"><em>No hay ningún conductor a cargo...</em></p>
               <h5>Estado: <span class="badge rounded-pill bg-secondary"><%= service.status %></span></h5>
+              <span class="badge bg-success">Disponible</span>
             </div>
           </div>
         </div>

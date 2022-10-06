@@ -1,0 +1,43 @@
+<div class="show-container">
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-12">
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-7">
+                <h2>Servicio de: <strong><%= @service.user.email %></strong> </h2>
+                <p>Dirección de recogida: <input class="form-control" type="text" value="<%= @service.pickup_address %>" aria-label="Disabled input example" disabled readonly></p>
+                <p>Dirección de entrega: <input class="form-control" type="text" value="<%= @service.deliver_address %>" aria-label="Disabled input example" disabled readonly></p>
+                <p>Método de pago: <input class="form-control" type="text" value="<%= @service.payment_method %>" aria-label="Disabled input example" disabled readonly></p>
+                <p>Estado del servicio: <span class="badge rounded-pill bg-secondary"><%= @service.status %></span><em> Ningún conductor ha aceptado el servicio</em></p>
+                <div class="d-flex justify-content-between">
+                  <div class="left">
+                    <%= simple_form_for @service do |f| %>
+                      <%= f.hidden_field :status, value: 2 %>
+                      <%= f.submit 'Aceptar servicio' %>
+                    <% end %>
+                  </div>
+                  <div class="right">
+                    <%= link_to @service, data: { turbo_method: :delete, turbo_confirm: "Estás seguro de borrar este servicio?" } do %>
+                      <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    <% end %>
+
+                    <%= link_to root_path do %>
+                        <button type="button" class="btn btn-secondary"><i class="fa-solid fa-circle-left"></i></button>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5 service-detail-tab mt-6">
+                <h1>Info. del conductor</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
