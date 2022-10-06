@@ -38,6 +38,8 @@
                         required: false %>
             <%= f.input :document_number, label: "Número documento",
                         required: false %>
+            <%= f.hidden_field :balance, label: "balance",
+                        required: false %>
 
             <% if current_user.user_type == "driver" %>
               <%= f.input :license, as: :file, label: "Licencia de conducción",

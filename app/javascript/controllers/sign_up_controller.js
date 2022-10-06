@@ -5,7 +5,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
 
-  static targets = ["users", "typeuser", "user", "driver", "licensefield", "bonuscode", "marco", "usertype"]
+  static targets = ["users", "typeuser", "user", "driver", "licensefield", "bonuscode", "marco", "usertype", "register"]
 
   connect() {
     this.marcoTarget.classList.add("marco");
@@ -28,4 +28,9 @@ export default class extends Controller {
     this.marcoTarget.classList.remove("marco");
     this.usertypeTarget.innerHTML = `<input required="required" value="driver" autocomplete="off" type="hidden" name="user[user_type]" id="user_user_type">`;
   }
+
+  othermethod() {
+    this.marcoTarget.classList.innerHTML = `<p>hola</p>`;
+  }
+
 }
