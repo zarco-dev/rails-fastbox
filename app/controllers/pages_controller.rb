@@ -6,6 +6,15 @@ class PagesController < ApplicationController
   end
 
   def tracking
-
   end
+
+  def wallet
+  end
+
+  def wallet_edit
+    query = params[:amount].to_i
+    current_user.balance += query
+    current_user.save
+  end
+
 end

@@ -1,0 +1,21 @@
+<div class="wallet-container">
+  <div class="wallet-container-center">
+    <div class="wallet-items">
+      <h1>Balance</h1>
+      <h2><%= current_user.balance %> <span>COP</span></h2>
+      <%= simple_form_for current_user, url: wallet_patch_path, method: :patch do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="number" name="amount" id="search_query" />
+          <button onclick="history.go(0)" type="submit" class="btn btn-success">
+            <i class="fa-solid fa-sack-dollar"></i> Cargar saldo
+          </button>
+        </div>
+      <% end %>
+    </div>
+
+    <%# <% if current_user.has_bonuscode.present? %>
+      <%# <%= current_user.balance += 10000 %>
+    <%# <% end %>
+
+  </div>
+</div>

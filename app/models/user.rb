@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  before_create :set_balance
 
   has_many :services, dependent: :delete_all
   has_many :vehicles
@@ -14,7 +15,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: /\S+@\S+\.\S+/, message: "debe tener el formato correcto" }
 
-  validates :birth_date, presence: true
+  # validates :birth_date, presence: true
 
   array = []
   self.all.each do |user|
@@ -22,5 +23,11 @@ class User < ApplicationRecord
   end
 
   validates :has_bonuscode, allow_blank: true, inclusion: { in: array, message: "%{value} no es valido"}
+
+  private
+
+  def set_balance
+    self.balance = 20_000 if has_bonuscode.present?
+  end
 
 end
