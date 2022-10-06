@@ -7,43 +7,48 @@
   align-items: center;
 }
 .tracking-container-a{
-  width: 70%;
+  width: 65%;
   height: 400px;
   background-color: #e9e9e9;
   border-radius: 15px;
   box-shadow: 0 0 10px rgb(231, 231, 231);
   padding: 30px 0;
   display:flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   animation: card ease-in 1 .7s;
-
 }
-
 @keyframes card{
 	0%{ transform: translatex(200%);
 	}
 	100%{ transform: translatex(0%);}
-
 }
 .tracking-container-a .buscar{
-  width: 50%;
+  width: 55%;
   height: auto;
-
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 30px;
 
 }
-.tracking-container-a .buscar h2{
-
-}
+// .tracking-container-a .buscar h2{
+// }
 .tracking-container-a .buscar span{
   color: #ebbf63;
+}
+.tracking-container-a .search-form-control{
+  padding: 20px 20px;
 
+}
+.tracking-container-a .search-form-control .form-control{
+  margin: 20px auto;
 }
 .tracking-container-a .buscar .search{
   width: 100%;
   height:auto;
+  margin: 20px auto;
   padding: 10px 65px;
   font-size: 20px;
   color: black;
@@ -52,30 +57,22 @@
   box-shadow: 0 0 10px rgb(136, 136, 136);
   transition: .5s;
   border-radius: 15px;
-
 }
 .tracking-container-a .buscar .search:hover{
   box-shadow: 0 0 10px rgb(179, 177, 177);
-
-
 }
-.tracking-container-a .buscar p{
-
-}
+// .tracking-container-a .buscar p{
+// }
 .tracking-container-a .tracking-image{
-  width: 50%;
+  width: 45%;
   height: 100%;
 
-  padding: 0 40px;
-  border-radius: 50%;
+  padding: 0 20px;
   object-fit: cover;
   animation: tracking ease-in 1 1s;
-
 }
-
 @keyframes tracking{
 	0%{ transform: translatex(200%);
 	}
 	100%{ transform: translatex(0%);}
-
 }
