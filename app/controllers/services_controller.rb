@@ -24,10 +24,23 @@ class ServicesController < ApplicationController
     end
   end
 
+  def edit
+    @service = Service.find(params[:id])
+    authorize @service
+  end
+
+  def update
+    @service = Service.find(params[:id])
+    authorize @service
+    @service.update(driverside_service_params)
+    @service.save
+    redirect_to edit_service_path(@service)
+  end
+
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
-    redirect_to users_path
+    redirect_to root_path
     authorize @service
   end
 
@@ -35,5 +48,9 @@ class ServicesController < ApplicationController
 
   def service_params
     params.require(:service).permit(:pickup_address, :deliver_address, :payment_method)
+  end
+
+  def driverside_service_params
+    params.require(:service).permit(:pickup_address, :deliver_address, :payment_method, :status)
   end
 end

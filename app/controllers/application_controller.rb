@@ -11,7 +11,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :birth_date, :bonus_code, :user_type, :license, :has_bonuscode])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:user_type, :username, :birth_date, :first_name, :last_name, :license, :gender, :document_number, :document_type, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:balance, :user_type, :username, :birth_date, :first_name, :last_name, :license, :gender, :document_number, :document_type, :avatar])
+
+    # def after_sign_in_path_for(resource)
+    #   stored_location_for(resource) || new_user_session_path
+    # end
+
+
+  end
+
+  def after_sign_up_path_for(resource)
+    :new_user_session_path
   end
 
   private

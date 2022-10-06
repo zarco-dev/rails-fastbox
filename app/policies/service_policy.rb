@@ -2,7 +2,9 @@ class ServicePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.where(user: user)
+      if !user.nil?
+        user.user_type == "driver" ? scope.all : scope.where(user: user)
+      end
     end
   end
 
@@ -16,5 +18,9 @@ class ServicePolicy < ApplicationPolicy
 
   def destroy?
     return true
+  end
+
+  def update?
+    user.user_type == "driver"
   end
 end
