@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_021613) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_180101) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_021613) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "packages", force: :cascade do |t|
+    t.string "name"
+    t.string "weight"
+    t.string "width"
+    t.string "height"
+    t.string "package_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.datetime "pickup_time"
     t.datetime "deliver_time"
@@ -54,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_021613) do
     t.bigint "user_id"
     t.bigint "vehicle_id"
     t.integer "pricing"
+    t.bigint "package_id"
+    t.index ["package_id"], name: "index_services_on_package_id"
     t.index ["user_id"], name: "index_services_on_user_id"
     t.index ["vehicle_id"], name: "index_services_on_vehicle_id"
   end
@@ -95,6 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_021613) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "services", "packages"
   add_foreign_key "services", "users"
   add_foreign_key "services", "vehicles"
   add_foreign_key "vehicles", "users"

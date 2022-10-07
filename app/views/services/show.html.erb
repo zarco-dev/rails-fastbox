@@ -12,7 +12,35 @@
                 <p>Dirección de entrega: <input class="form-control" type="text" value="<%= @service.deliver_address %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Método de pago: <input class="form-control" type="text" value="<%= @service.payment_method %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Estado del servicio: <% if @service.status == 1 %>
-                  <span class="badge rounded-pill bg-secondary"><%= @service.status %></span>
+                  <span class="badge rounded-pill bg-secondary"><%= @service.status %></span><p> </p>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#packageModal">
+                      <strong>+ </strong>Agregar paquete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="packageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Detalle del paquete</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <%= simple_form_for [@service, @package], url: service_packages_path(@service) do |f| %>
+                              <%= f.input :name, label: "Nombre del paquete", placeholder: "Ej. Carta, Caja, etc..." %>
+                              <%= f.input :weight, label: "Peso", placeholder: "10 Kg" %>
+                              <%= f.input :width, label: "Ancho", placeholder: "10 cm, 20 cm, etc..." %>
+                              <%= f.input :height, label: "Alto", placeholder: "10 cm, 20 cm, etc..." %>
+                              <%= f.input :package_type, label: "Tipo de paquete", placeholder: "Sensible, rigido" %>
+                              <%= f.submit 'Agregar paquete', class: "btn btn-success" %>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   <% elsif @service.status >= 2 %>
                   <span class="badge rounded-pill bg-primary"><%= @service.status %></span>
                 <% end %></p>
