@@ -11,14 +11,22 @@
                 <p>Dirección de recogida: <input class="form-control" type="text" value="<%= @service.pickup_address %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Dirección de entrega: <input class="form-control" type="text" value="<%= @service.deliver_address %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Método de pago: <input class="form-control" type="text" value="<%= @service.payment_method %>" aria-label="Disabled input example" disabled readonly></p>
-                <p>Estado del servicio: <span class="badge rounded-pill bg-secondary">1</span></p>
+                <p>Estado del servicio: <% if @service.status == 1 %>
+                  <span class="badge rounded-pill bg-secondary"><%= @service.status %></span>
+                  <% elsif @service.status >= 2 %>
+                  <span class="badge rounded-pill bg-primary"><%= @service.status %></span>
+                <% end %></p>
                 <div class="d-flex justify-content-between">
                   <div class="left">
                     <p><em>Ningún conductor ha aceptado tu servicio</em></p>
                   </div>
                   <div class="right">
-                    <%= link_to @service, data: { turbo_method: :delete, turbo_confirm: "Estás seguro de borrar este servicio?" } do %>
-                      <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    <% if @service.status == 1 %>
+                        <%= link_to @service, data: { turbo_method: :delete, turbo_confirm: "Estás seguro de borrar este servicio?" } do %>
+                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                      <% end %>
+                      <% elsif @service.status == 2 %>
+                        <button type="button" class="btn btn-danger" disabled><i class="fa-solid fa-trash"></i></button>
                     <% end %>
 
                     <%= link_to root_path do %>

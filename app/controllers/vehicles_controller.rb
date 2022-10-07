@@ -14,19 +14,10 @@ class VehiclesController < ApplicationController
     @vehicle.user = current_user
     authorize @vehicle
     if @vehicle.save
-      redirect_to @vehicle
+      redirect_to root_path
     else
       render :new
     end
-  end
-
-  def show
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private
