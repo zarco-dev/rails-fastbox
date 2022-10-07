@@ -23,5 +23,4 @@ class PagesController < ApplicationController
     current_user.balance += query
     current_user.save
   end
-
 end
