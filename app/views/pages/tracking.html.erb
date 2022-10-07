@@ -16,10 +16,6 @@
      <div class="tracking-container-service">
       <% if params[:rastreo].present? %>
         <% @service.each do |service| %>
-          <% if params[:rastreo].to_i > @services.last.id %>
-            <p class='tracking-message'>El servicio que deseas buscar no existe</p>
-            <i class="fa-solid fa-heart-crack"></i>
-          <% end %>
           <div class="tracking-avatar">
             <div class="tracking-avatar-user">
               <% if service.user.avatar.attached? %>
@@ -34,7 +30,7 @@
             <div class="tracking-avatar-user">
               <% if service.user.avatar.attached? %>
                 <%= cl_image_tag service.user.avatar.key %>
-                <% else %>
+              <% else %>
                 <%= image_tag "condu-profile.png", class: "avatar" %>
               <% end %>
               <h2>Conductor</h2>
