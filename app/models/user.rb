@@ -4,7 +4,7 @@ class User < ApplicationRecord
   before_create :set_balance
 
   has_many :services, dependent: :delete_all
-  has_many :vehicles
+  has_many :vehicles, dependent: :delete_all
   has_one_attached :license
   has_one_attached :avatar
 

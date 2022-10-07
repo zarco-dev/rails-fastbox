@@ -26,6 +26,7 @@ class ServicesController < ApplicationController
 
   def edit
     @service = Service.find(params[:id])
+    @vehicle = policy_scope(Vehicle)
     authorize @service
   end
 
@@ -51,6 +52,6 @@ class ServicesController < ApplicationController
   end
 
   def driverside_service_params
-    params.require(:service).permit(:pickup_address, :deliver_address, :payment_method, :status)
+    params.require(:service).permit(:pickup_address, :deliver_address, :payment_method, :status, :vehicle_id)
   end
 end

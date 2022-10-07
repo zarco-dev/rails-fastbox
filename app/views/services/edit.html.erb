@@ -16,14 +16,11 @@
                   <div class="left">
                     <%= simple_form_for @service do |f| %>
                       <%= f.hidden_field :status, value: 2 %>
-                      <%= f.submit 'Aceptar servicio' %>
+                      <%= f.input :vehicle_id, label: 'Vehiculo a utilizar', collection: @vehicle.collect { |vehicle| [vehicle.model, vehicle.id] } %>
+                      <%= f.submit 'Aceptar servicio', class: "btn btn-success" %>
                     <% end %>
                   </div>
-                  <div class="right">
-                    <%= link_to @service, data: { turbo_method: :delete, turbo_confirm: "Estás seguro de borrar este servicio?" } do %>
-                      <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    <% end %>
-
+                  <div class="right align-self-end">
                     <%= link_to root_path do %>
                         <button type="button" class="btn btn-secondary"><i class="fa-solid fa-circle-left"></i></button>
                     <% end %>
