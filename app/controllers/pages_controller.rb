@@ -6,13 +6,15 @@ class PagesController < ApplicationController
   end
 
   def tracking
+      @services = Service.all
+      @service = Service.where("id = ?", params[:rastreo])
   end
 
   # profile creado provisionalmente luego adherir al dashboard con lo realizado Juanse y profile en routes tambien
 
   def profile
   end
-  
+
   def wallet
   end
 
