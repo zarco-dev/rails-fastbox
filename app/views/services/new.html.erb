@@ -1,3 +1,5 @@
+<% price = rand(5000..40000) %>
+
 <div class="new-container">
   <div class="container mt-5 mb-5">
     <div class="row">
@@ -13,13 +15,20 @@
                 <%= simple_form_for @service do |f| %>
                   <%= f.input :pickup_address, placeholder: 'Coloca tu dirección de recogida' %>
                   <%= f.input :deliver_address, placeholder: 'Coloca tu dirección de entrega' %>
-                  <%= f.input :payment_method, as: :radio_buttons, collection: [['Contra-entrega', 'Contra-entrega'], ['Tarjeta', 'Tarjeta']], label_method: :second, value_method: :first %>
+                  <%= f.input :payment_method, as: :radio_buttons, collection: [['Contra-entrega', 'Contra-entrega'], ['Mi Balance', 'Mi Balance']], label_method: :second, value_method: :first %>
+                  <%= f.hidden_field :pricing, value: price %>
                   <%= f.submit 'Crear servicio', class: "btn btn-success" %>
                 <% end %>
               </div>
-              <div class="col-4 package-tab">
+              <div class="col-4 package-tab d-flex flex-column">
                 <h5>Añade paquetes a tu servicio!</h5>
-                <button type="button" class="btn btn-success"><strong>+</strong> Añadir paquete</button>
+                <div class="flex-grow-1">
+                  <button type="button" class="btn btn-success"><strong>+</strong> Añadir paquete</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p style="margin: 0 auto; padding: 0;"><strong>Precio del servicio: </strong></p>
+                  <input class="form-control" type="text" value="<%= price %> COP" disabled readonly>
+                </div>
               </div>
             </div>
 

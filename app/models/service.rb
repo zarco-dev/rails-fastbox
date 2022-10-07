@@ -4,4 +4,5 @@ class Service < ApplicationRecord
 
   validates :payment_method, :pickup_address, :deliver_address, presence: true
   validates :user_id, presence: true
+
 end

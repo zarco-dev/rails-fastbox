@@ -11,13 +11,19 @@
                 <p>Dirección de recogida: <input class="form-control" type="text" value="<%= @service.pickup_address %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Dirección de entrega: <input class="form-control" type="text" value="<%= @service.deliver_address %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Método de pago: <input class="form-control" type="text" value="<%= @service.payment_method %>" aria-label="Disabled input example" disabled readonly></p>
-                <p>Estado del servicio: <span class="badge rounded-pill bg-secondary"><%= @service.status %></span><em> Ningún conductor ha aceptado el servicio</em></p>
+                <p>Estado del servicio: <% if @service.status == 1 %>
+                  <span class="badge rounded-pill bg-secondary"><%= @service.status %></span><em> Ningún conductor ha aceptado el servicio</em>
+                  <% elsif @service.status >= 2 %>
+                  <span class="badge rounded-pill bg-primary"><%= @service.status %></span>
+                <% end %></p>
                 <div class="d-flex justify-content-between">
                   <div class="left">
-                    <%= simple_form_for @service do |f| %>
-                      <%= f.hidden_field :status, value: 2 %>
-                      <%= f.input :vehicle_id, label: 'Vehiculo a utilizar', collection: @vehicle.collect { |vehicle| [vehicle.model, vehicle.id] } %>
-                      <%= f.submit 'Aceptar servicio', class: "btn btn-success" %>
+                    <% if @service.status == 1 %>
+                      <%= simple_form_for @service do |f| %>
+                        <%= f.hidden_field :status, value: 2 %>
+                        <%= f.input :vehicle_id, label: 'Vehiculo a utilizar', collection: @vehicle.collect { |vehicle| [vehicle.model, vehicle.id] } %>
+                        <%= f.submit 'Aceptar servicio', class: "btn btn-success" %>
+                      <% end %>
                     <% end %>
                   </div>
                   <div class="right align-self-end">
@@ -27,8 +33,17 @@
                   </div>
                 </div>
               </div>
-              <div class="col-5 service-detail-tab mt-6">
-                <h1>Info. del conductor</h1>
+              <div class="col-5 service-detail-tab">
+                <h2>Info. del conductor</h2>
+                <% if @service.status >= 2 %>
+                  <p>Conductor a cargo: <input class="form-control" type="text" value="<%= @service.vehicle.user.email %>" aria-label="Disabled input example" disabled readonly></p>
+                  <p>Vehiculo del conductor: <input class="form-control" type="text" value="<%= @service.vehicle.vehicle_branding %>" aria-label="Disabled input example" disabled readonly></p>
+                  <p>Modelo del vehiculo <input class="form-control" type="text" value="<%= @service.vehicle.model%>" aria-label="Disabled input example" disabled readonly></p>
+                  <%= simple_form_for @service do |f| %>
+                    <%= f.hidden_field :status, value: 3 %>
+                    <%= f.submit 'Marcar como entregado', class: "btn btn-primary" %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
