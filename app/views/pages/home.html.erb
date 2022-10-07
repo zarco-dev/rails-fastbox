@@ -82,46 +82,23 @@
 </div>
 
 <% else %>
-
-  <% if current_user.license.attached? && current_user.avatar.attached?  %>
-    <%= cl_image_tag current_user.license.key, height: 300, width: 400, crop: :fill %>
-    <%= cl_image_tag current_user.avatar.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-    <!--<h2>no tiene</h2>-->
-  <% end %>
-  <div class="banner banner2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg); height: 100%">
-
-    <% if current_user.user_type == "driver" %>
-      <h1 class="mt-5">Servicios disponibles</h1>
-    <% elsif current_user.user_type == "personal" %>
-      <h1 class="mt-5">Mis servicios</h1>
-    <% end %>
-
-    <% @services.each_with_index do |service, index| %>
-      <div class="container mt-3 mb-3">
-        <div class="service-card">
-          <div class="service-number">
-            <p><%= index + 1 %></p>
+  <div class="dashboard-user">
+    <div class="dashboard-profile">
+      <div class="profile-container">
+          <div class="profile-card">
+          <div class="profile-avatar">
+            <% if current_user.avatar.attached? %>
+                  <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
+                  <% else %>
+                  <%= image_tag "profile-avatar.png", class: "avatar" %>
+                <% end %>
+              <h2>@<%= current_user.username %></h2>
           </div>
-          <div class="card my-2 p-3 d-flex flex-row">
-            <div class="flex-grow-1">
-            <h4 class="pb-3">Servicio de: <strong><%= service.user.email %></strong></h4>
-            <% if service.user == current_user %>
-                <%= link_to service_path(service), style:"text-decoration: none; color: black;" do %>
-                <h5>Dirección de recogida: <%= service.pickup_address %></h5>
-                <h5>Dirección de entrega: <%= service.deliver_address %></h5>
-              <% end %>
-              <% else %>
-                <%= link_to edit_service_path(service), style:"text-decoration: none; color: black;" do %>
-                <h5>Dirección de recogida: <%= service.pickup_address %></h5>
-                <h5>Dirección de entrega: <%= service.deliver_address %></h5>
-              <% end %>
-            <% end %>
+            <div class="profile-balance">
+              <h3>Balance</h3>
+              <p><%= current_user.balance %> COP</p>
             </div>
             <div class="text-end align-items-end">
-              <% if service.status == 2 %>
-                <%= current_user.email %>
-              <% end %>
               <h5>Estado: <% if service.status == 1 %>
                   <span class="badge rounded-pill bg-secondary"><%= service.status %></span>
                   <% elsif service.status >= 2 %>
@@ -135,10 +112,59 @@
                 <span class="badge bg-danger">Finalizado</span>
               <% end %>
               <p class="align-self-end">Identificación del servicio: <%= service.id %></p>
+            <div class="profile-refer">
+              <p>Tu codigo de referido: <span><%= current_user.bonus_code %></span></p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="dashboard-user-panel">
+      <% if current_user.user_type == "driver" %>
+        <h1 class="mt-5 text-dashboard">Servicios disponibles</h1>
+      <% elsif current_user.user_type == "personal" %>
+        <h1 class="mt-5 text-dashboard">Mis servicios</h1>
+      <% end %>
+
+      <% @services.each_with_index do |service, index| %>
+        <div class="container mt-3 mb-3">
+          <div class="service-card">
+            <div class="service-number">
+              <p><%= index + 1 %></p>
+            </div>
+            <div class="card my-2 p-3 d-flex flex-row card-s">
+              <div class="flex-grow-1">
+              <h4 class="pb-3">Servicio de: <strong><%= service.user.email %></strong></h4>
+              <% if service.user == current_user %>
+                  <%= link_to service_path(service), style:"text-decoration: none; color: black;" do %>
+                  <h5>Dirección de recogida: <%= service.pickup_address %></h5>
+                  <h5>Dirección de entrega: <%= service.deliver_address %></h5>
+                <% end %>
+                <% else %>
+                  <%= link_to edit_service_path(service), style:"text-decoration: none; color: black;" do %>
+                  <h5>Dirección de recogida: <%= service.pickup_address %></h5>
+                  <h5>Dirección de entrega: <%= service.deliver_address %></h5>
+                <% end %>
+              <% end %>
+              </div>
+              <div class="text-end align-items-end">
+                <% if service.status == 2 %>
+                  <%= current_user.email %>
+                <% end %>
+                <h5>Estado: <% if service.status == 1 %>
+                    <span class="badge rounded-pill bg-secondary"><%= service.status %></span>
+                    <% elsif service.status >= 2 %>
+                    <span class="badge rounded-pill bg-primary"><%= service.status %></span>
+                  <% end %></h5>
+                <% if service.status == 1 %>
+                  <span class="badge bg-success">Disponible</span>
+                <% elsif service.status >= 2 %>
+                  <span class="badge bg-warning">En proceso</span>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  <% end %>
+       <% end %>
+    </div>
   </div>
 <% end %>

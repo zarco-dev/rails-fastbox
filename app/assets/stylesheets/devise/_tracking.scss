@@ -11,6 +11,17 @@
 .search-container {
   width: 50vw;
   padding: 0 200px;
+  //background-color: red;
+  animation: 1s containeranim;
+  -webkit-animation: 1s containeranim;
+}
+
+
+@keyframes containeranim{
+	0%{ transform: translatey(0%); -webkit-transform: translatey(0%); -moz-transform: translatey(0%); -ms-transform: translatey(0%); -o-transform: translatey(0%);
+}
+	100%{ transform: translatey(0%); -webkit-transform: translatey(0%); -moz-transform: translatey(0%); -ms-transform: translatey(0%); -o-transform: translatey(0%);
+}
 }
 
 .search-container h2 {
@@ -81,10 +92,18 @@
 .maps {
   height: 60vh;
   width: 75vw;
-  // background-color: red;
+  //background-color: red;
   margin-top: 50px;
   display: flex;
   justify-content: space-evenly;
+  animation: 1s mapas;
+  -webkit-animation: 1s mapas;
+}
+@keyframes mapas{
+0%{ opacity: 0;
+}
+100%{ opacity: 1;
+}
 }
 
 .tracking-container-service .tracking-message {
@@ -274,6 +293,18 @@
 
 .tracking-status-product .active .circle-status, .tracking-status-product .active .line-guide, .tracking-status-product .active .line-guide-2 {
   background-color: #36a087;
+  animation: .9s linear 0s infinite alternate status;
+  -webkit-animation: .9s linear 0s infinite alternate status;
+}
+
+@keyframes status {
+  from {
+    background-color: #36a087;
+  }
+
+  to {
+    background-color: #7bff00;
+  }
 }
 
 .line-guide {
