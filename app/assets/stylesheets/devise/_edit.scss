@@ -10,6 +10,18 @@
   color: #fff;
 }
 
+.subir{
+  padding: 5px 10px;
+  background: #f55d3e;
+  color:#fff;
+  border:0px solid #fff;
+}
+
+.subir:hover{
+  color:#fff;
+  background: #f7cb15;
+}
+
 .form-edit input, .form-edit select {
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -77,14 +89,24 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  overflow: hidden;
   width: 120px;
   height: 120px;
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 20;
+}
 
+.avatar-circle input {
+  width: 350px;
+  height: 53px;
+  position: absolute;
+  top: 77px;
+  left: -6px;
+  z-index: 10;
 }
 
 @media (max-width: 1370px) {
