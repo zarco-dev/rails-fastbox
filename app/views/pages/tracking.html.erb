@@ -1,20 +1,118 @@
 <div class="tracking-container">
-  <div class="tracking-container-a">
-    <div class="buscar">
-      <h2> Rastrea tu <span> Pedido </span> </h2>
-
+  <div class="search-container">
+      <h2>Rastrea tu pedido</h2>
       <p>Por favor ingresa el código de tu guía</p>
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-        <div class="search-form-control">
-          <input class="form-control" type="text" name="search[query]" id="search_query" />
-          <button name="button" type="submit" class="search">
-            <i class="fas fa-search"></i> Buscar
-          </button>
-        </div>
+        <%= simple_form_for :search, url: tracking_path, method: :get do |f| %>
+          <div class="search-form-control form-group">
+            <input class="form-control string required" placeholder="ex: 2542" type="search" name="rastreo" id="search_query" value="" />
+            <button type="submit" class="btn btn-search"><i class="fa-solid fa-location-dot"></i></button>
+          </div>
+        <% end %>
+  </div>
+
+
+
+  <div class="maps">
+     <div class="tracking-container-service">
+      <% if params[:rastreo].present? %>
+        <% if params[:rastreo].to_i > @services.size %>
+          <p class='tracking-message'>El servicio que deseas buscar no existe</p>
+          <i class="fa-solid fa-heart-crack"></i>
+        <% end %>
+        <% @service.each do |service| %>
+
+          <div class="tracking-avatar">
+            <div class="tracking-avatar-user">
+              <% if service.user.avatar.attached? %>
+                <%= cl_image_tag service.user.avatar.key, width: 100, height: 100 %>
+                <% else %>
+                <%= image_tag "profile-avatar.png", class: "avatar" %>
+              <% end %>
+              <h2>Usuario</h2>
+              <span>@<%= service.user.username %></span>
+            </div>
+            <div class="tracking-line"></div>
+            <div class="tracking-avatar-user">
+              <% if service.user.avatar.attached? %>
+                <%= cl_image_tag service.user.avatar.key %>
+                <% else %>
+                <%= image_tag "condu-profile.png", class: "avatar" %>
+              <% end %>
+              <h2>Conductor</h2>
+              <span>@<%= service.user.username %></span>
+            </div>
+          </div>
+
+
+          <div class="tracking-info-service">
+           <div class="tracking-info-product">
+              <%= image_tag "box.png" %>
+             <div class="tracking-price">
+              <h2>Name product</h2>
+              <span>10.000 COP</span>
+             </div>
+           </div>
+            <div class="tracking-status-product">
+              <% if service.status == 1 %>
+                <div class="tracking-status-0 active">
+                    <div class="circle-status"></div>
+                    <i class="fa-solid fa-user-clock"></i><span>Esperando un conductor</span>
+                    <div class="line-guide"></div>
+                </div>
+                <div class="tracking-status-1">
+                    <div class="circle-status"></div>
+                    <i class="fa-solid fa-truck"></i><span>En camino</span>
+                    <div class="line-guide-2"></div>
+                </div>
+                <div class="tracking-status-2">
+                    <div class="circle-status"></div>
+                    <i class="fa-solid fa-circle-check"></i><span>Entregado</span>
+                </div>
+              <% elsif service.status == 2 %>
+                <div class="tracking-status-0 active">
+                    <div class="circle-status active"></div>
+                    <i class="fa-solid fa-user-clock"></i><span>Esperando un conductor</span>
+                    <div class="line-guide"></div>
+                </div>
+                <div class="tracking-status-1 active">
+                    <div class="circle-status active"></div>
+                    <i class="fa-solid fa-truck"></i><span>En camino</span>
+                    <div class="line-guide-2"></div>
+                </div>
+                <div class="tracking-status-2">
+                    <div class="circle-status"></div>
+                    <i class="fa-solid fa-user-check"></i><span>Entregado</span>
+                </div>
+              <% elsif service.status == 3 %>
+                <div class="tracking-status-0 active">
+                    <div class="circle-status active"></div>
+                   <i class="fa-solid fa-user-clock"></i><span>Esperando un conductor</span>
+                    <div class="line-guide"></div>
+                </div>
+                <div class="tracking-status-1 active">
+                    <div class="circle-status active"></div>
+                    <i class="fa-solid fa-truck"></i><span>En camino</span>
+                    <div class="line-guide-2"></div>
+                </div>
+                <div class="tracking-status-2 active">
+                    <div class="circle-status active"></div>
+                    <i class="fa-solid fa-circle-check"></i><span>Entregado</span>
+                </div>
+           <% end %>
+           <div class="tracking-address">
+            <p>Sale de: <span><%= service.pickup_address %></span></p>
+            <p>Se entrega en: <span><%= service.deliver_address %></span></p>
+            <p>Metodo de pago: <span><%= service.payment_method %></span></p>
+           </div>
+            </div>
+          </div>
+
+        <% end %>
       <% end %>
-      <!-- <a href="#" class="search">Buscar</a> -->
     </div>
 
-    <%= image_tag "tracking.jpg", class: "tracking-image" %>
+    <div class="tracking-container-service">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63458.35960866081!2d-75.61623096173479!3d6.244287615668784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1665075828134!5m2!1ses!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
 </div>

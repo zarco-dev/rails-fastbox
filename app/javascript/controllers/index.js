@@ -12,3 +12,6 @@ application.register("navbar", NavbarController)
 
 import SignUpController from "./sign_up_controller"
 application.register("sign-up", SignUpController)
+
+import TrackingController from "./tracking_controller"
+application.register("tracking", TrackingController)
