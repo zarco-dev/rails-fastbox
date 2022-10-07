@@ -133,9 +133,6 @@
               <% end %>
               </div>
               <div class="text-end align-items-end">
-                <% if service.status == 2 %>
-                  <%= current_user.email %>
-                <% end %>
                 <h5>Estado: <% if service.status == 1 %>
                     <span class="badge rounded-pill bg-secondary"><%= service.status %></span>
                     <% elsif service.status >= 2 %>
