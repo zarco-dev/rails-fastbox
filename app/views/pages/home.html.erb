@@ -93,7 +93,7 @@
 
     <% if current_user.user_type == "driver" %>
       <h1 class="mt-5">Servicios disponibles</h1>
-    <% elsif current_user.user_type == "user" %>
+    <% elsif current_user.user_type == "personal" %>
       <h1 class="mt-5">Mis servicios</h1>
     <% end %>
 
@@ -119,9 +119,19 @@
             <% end %>
             </div>
             <div class="text-end align-items-end">
-              <p style="color: black;"><em>No hay ningún conductor a cargo...</em></p>
-              <h5>Estado: <span class="badge rounded-pill bg-secondary"><%= service.status %></span></h5>
-              <span class="badge bg-success">Disponible</span>
+              <% if service.status == 2 %>
+                <%= current_user.email %>
+              <% end %>
+              <h5>Estado: <% if service.status == 1 %>
+                  <span class="badge rounded-pill bg-secondary"><%= service.status %></span>
+                  <% elsif service.status >= 2 %>
+                  <span class="badge rounded-pill bg-primary"><%= service.status %></span>
+                <% end %></h5>
+              <% if service.status == 1 %>
+                <span class="badge bg-success">Disponible</span>
+              <% elsif service.status >= 2 %>
+                <span class="badge bg-warning">En proceso</span>
+              <% end %>
             </div>
           </div>
         </div>
