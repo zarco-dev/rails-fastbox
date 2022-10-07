@@ -12,9 +12,13 @@
 
 
 
+<% if params[:rastreo].present? %>
   <div class="maps">
      <div class="tracking-container-service">
-      <% if params[:rastreo].present? %>
+        <% if params[:rastreo].to_i > @services.last.id %>
+          <p class='tracking-message'>El servicio que deseas buscar no existe</p>
+          <i class="fa-solid fa-heart-crack"></i>
+        <% end %>
         <% @service.each do |service| %>
           <div class="tracking-avatar">
             <div class="tracking-avatar-user">
@@ -26,15 +30,30 @@
               <h2>Usuario</h2>
               <span>@<%= service.user.username %></span>
             </div>
-            <div class="tracking-line"></div>
+
+            <% if service.status == 1 %>
+              <%# <div class="tracking-line"></div> %>
+              <% else %>
+              <div class="tracking-line"></div>
+            <% end %>
+
             <div class="tracking-avatar-user">
               <% if service.user.avatar.attached? %>
                 <%= cl_image_tag service.user.avatar.key %>
               <% else %>
-                <%= image_tag "condu-profile.png", class: "avatar" %>
+                <% if service.status == 1 %>
+                  <%= image_tag "condu-profile.png", class: "avatar", style: "outline: none" %>
+                <% else %>
+                  <%= image_tag "condu-profile.png", class: "avatar" %>
+                <% end %>
               <% end %>
-              <h2>Conductor</h2>
-              <span>@<%= service.vehicle.user.username %></span>
+              <% if service.status == 1 %>
+              <h2><i class="fa-sharp fa-solid fa-circle-xmark"></i></h2>
+                <span>Conductor sin asignar</span>
+              <% else %>
+                <h2>Conductor</h2>
+                <span>@<%= service.vehicle.user.username %></span>
+              <% end %>
             </div>
           </div>
 
@@ -103,11 +122,12 @@
           </div>
 
         <% end %>
-      <% end %>
     </div>
-
     <div class="tracking-container-service">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63458.35960866081!2d-75.61623096173479!3d6.244287615668784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1665075828134!5m2!1ses!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+    <% else %>
+    <div></div>
+      <% end %>
   </div>
 </div>

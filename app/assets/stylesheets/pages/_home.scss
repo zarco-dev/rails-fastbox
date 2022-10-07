@@ -222,6 +222,22 @@
 
 .service-card {
   transition: 0.5s ease;
+  background-color: #FECE6B;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.card-s {
+  background-color: #201E1E;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.card-s h4, .card-s h5 {
+  color: #fff;
 }
 
 .service-card:hover {
@@ -230,16 +246,16 @@
   -ms-transform: scale(1.05);
 }
 
-.service-card:hover .card{
-  background: linear-gradient(to bottom, #ffffff 25%, #c2ffa4 100%);
-}
-
 .service-number {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  font-weight: bold;
+  color: #fff;
   width: 35px;
   height: 35px;
   background-color: rgb(72, 197, 0);
-  color: rgb(0, 0, 0);
   position: relative;
   top: 1.65rem;
   left: -1.25rem;
