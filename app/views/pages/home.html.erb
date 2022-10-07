@@ -129,9 +129,12 @@
                 <% end %></h5>
               <% if service.status == 1 %>
                 <span class="badge bg-success">Disponible</span>
-              <% elsif service.status >= 2 %>
+              <% elsif service.status == 2 %>
                 <span class="badge bg-warning">En proceso</span>
+              <% elsif service.status == 3 %>
+                <span class="badge bg-danger">Finalizado</span>
               <% end %>
+              <p class="align-self-end">Identificación del servicio: <%= service.id %></p>
             </div>
           </div>
         </div>
