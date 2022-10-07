@@ -17,6 +17,8 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     @service.user = current_user
     authorize @service
+    current_user.balance -= @service.pricing
+    current_user.save
     if @service.save
       redirect_to @service
     else
@@ -48,7 +50,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:pickup_address, :deliver_address, :payment_method)
+    params.require(:service).permit(:pickup_address, :deliver_address, :payment_method, :pricing)
   end
 
   def driverside_service_params
