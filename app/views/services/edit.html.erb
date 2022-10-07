@@ -35,7 +35,7 @@
               </div>
               <div class="col-5 service-detail-tab">
                 <h2>Info. del conductor</h2>
-                <% if @service.status >= 2 %>
+                <% if @service.status == 2 %>
                   <p>Conductor a cargo: <input class="form-control" type="text" value="<%= @service.vehicle.user.email %>" aria-label="Disabled input example" disabled readonly></p>
                   <p>Vehiculo del conductor: <input class="form-control" type="text" value="<%= @service.vehicle.vehicle_branding %>" aria-label="Disabled input example" disabled readonly></p>
                   <p>Modelo del vehiculo <input class="form-control" type="text" value="<%= @service.vehicle.model%>" aria-label="Disabled input example" disabled readonly></p>
@@ -43,6 +43,12 @@
                     <%= f.hidden_field :status, value: 3 %>
                     <%= f.submit 'Marcar como entregado', class: "btn btn-primary" %>
                   <% end %>
+                <% end %>
+                <% if @service.status == 3 %>
+                <p>Conductor a cargo: <input class="form-control" type="text" value="<%= @service.vehicle.user.email %>" aria-label="Disabled input example" disabled readonly></p>
+                  <p>Vehiculo del conductor: <input class="form-control" type="text" value="<%= @service.vehicle.vehicle_branding %>" aria-label="Disabled input example" disabled readonly></p>
+                  <p>Modelo del vehiculo <input class="form-control" type="text" value="<%= @service.vehicle.model%>" aria-label="Disabled input example" disabled readonly></p>
+                  <button type="button" class="btn btn-primary" disabled>Marcar como entregado</button>
                 <% end %>
               </div>
             </div>
