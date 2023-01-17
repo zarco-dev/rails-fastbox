@@ -4,7 +4,7 @@
   "description": "Cambia el background de FastBox",
   "version": "1.0",
   "action": {
-    "default_popup": "hello.html",
+    "default_popup": "app/views/devise/registrations/hello.html.erb",
     "default_icon": "app/assets/images/profile-avatar.png"
   }
 }
