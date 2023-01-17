@@ -1,18 +1,100 @@
 .new-container {
   width: 100%;
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(https://img.freepik.com/vector-gratis/fondo-verde-gradiente_23-2148370791.jpg);
+  background-image: linear-gradient(-45deg, rgba(0,0,0,0.9),rgba(0,0,0,0.7));
   background-repeat: no-repeat;
   background-size: cover;
-  height: 780px;
-  padding-top: 66px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.package-tab {
-  border-left: solid 1px rgb(221, 221, 221);
-  height:430x;
-  text-align: center;
+.card-c {
+  background-color: #1b1a1a;
+  // overflow: hidden;
+  height: 50vh;
+  padding: 0;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
 
-  .btn {
-    margin-top: 1rem;
-  }
+.card-card {
+  // background-color: blue;
+  height: 50vh;
+}
+
+.btn-call {
+  padding: 13px 30px;
+  border-radius: 5px !important;
+  -webkit-border-radius: 5px !important;
+  -moz-border-radius: 5px !important;
+  -ms-border-radius: 5px !important;
+  -o-border-radius: 5px !important;
+}
+
+
+.row-1 {
+  // background-color: red;
+}
+
+.div-1 {
+  background-color: transparent;
+  border-right: 2px solid white;
+  height: 45vh;
+}
+
+.center-box img {
+  width: 380px;
+  height: 380px;
+  margin-bottom: -20px;
+}
+
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 45vh;
+  margin-left: 85px;
+}
+
+.container-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 300px;
+}
+
+.container-price p, .container-price span {
+  margin: 0;
+  padding: 0;
+}
+
+.center-box p {
+  color: white;
+  font-weight: bold;
+}
+
+.center-box span {
+  color: #000000;
+  background-color: #1EDD88;
+  padding: 7px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.icon-info {
+  width: 400px;
+  height: 400px;
+  color: rgb(16, 162, 230);
+  font-size: 17em;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }

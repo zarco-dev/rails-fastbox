@@ -1,25 +1,17 @@
-<div class="show-container">
+<div class="new-container">
   <div class="container mt-5 mb-5">
     <div class="row">
       <div class="col-12">
-
-        <div class="card">
-          <div class="card-body">
+        <div class="card card-c">
+          <div class="card-body card-card">
             <div class="row">
-              <div class="col-7">
+              <div class="col-7 div-1">
                 <h1>Detalles de tu servicio: </h1>
                 <p>Dirección de recogida: <input class="form-control" type="text" value="<%= @service.pickup_address %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Dirección de entrega: <input class="form-control" type="text" value="<%= @service.deliver_address %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Método de pago: <input class="form-control" type="text" value="<%= @service.payment_method %>" aria-label="Disabled input example" disabled readonly></p>
                 <p>Estado del servicio: <% if @service.status == 1 %>
-                  <span class="badge rounded-pill bg-secondary"><%= @service.status %></span><p> </p>
-
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#packageModal">
-                      <strong>+ </strong>Agregar paquete
-                    </button>
-
-                    <!-- Modal -->
+                  <span class="badge rounded-pill bg-warning"><%= @service.status %></span><p> </p>
                     <div class="modal fade" id="packageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -63,8 +55,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-5 service-detail-tab mt-6">
-                <h1>Info. del conductor</h1>
+              <div class="col-5 service-detail-tab mt-6 icon-info">
+                <i class="fa-solid fa-circle-info"></i>
               </div>
             </div>
           </div>

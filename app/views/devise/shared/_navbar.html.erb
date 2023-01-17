@@ -48,6 +48,7 @@
                 <p class="dropdown-item">@<%= current_user.username %></p>
                 <%= link_to "Editar Perfil", edit_user_registration_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Wallet", wallet_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Tracking", tracking_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Cerrar sesión", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
             </li>
