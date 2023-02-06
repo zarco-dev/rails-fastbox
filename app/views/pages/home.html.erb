@@ -102,21 +102,7 @@
               <h3>Balance</h3>
               <p><%= current_user.balance %> COP</p>
             </div>
-            <div class="text-end align-items-end">
-              <h5>Estado: <% if @service.status == 1 %>
-                  <span class="badge rounded-pill bg-secondary"><%= service.status %></span>
-                  <% elsif @service.status >= 2 %>
-                  <span class="badge rounded-pill bg-primary"><%= service.status %></span>
-                <% end %></h5>
-              <% if @service.status == 1 %>
-                <span class="badge bg-success">Disponible</span>
-              <% elsif @service.status == 2 %>
-                <span class="badge bg-warning">En proceso</span>
-              <% elsif @service.status == 3 %>
-                <span class="badge bg-danger">Finalizado</span>
-              <% end %>
-              <p class="align-self-end">Identificación del servicio: <%= @service.id %></p>
-            <div class="profile-refer">
+            
               <p>Tu codigo de referido: <span><%= current_user.bonus_code %></span></p>
             </div>
           </div>
